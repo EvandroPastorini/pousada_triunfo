@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fffaf0;
+  font-family: Morisawa, "Avenir Next", Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+iframe {
+  display: block;
+}
+
+@layer components {
+  .section-kicker {
+    @apply mb-4 inline-flex items-center gap-2 font-subtitle text-sm font-bold uppercase tracking-[0.18em] text-lavender;
+  }
+
+  .section-kicker::before {
+    content: "";
+    @apply h-px w-8 bg-marigold;
+  }
+
+  .section-title {
+    @apply max-w-3xl font-display text-4xl leading-tight text-moss-900 text-balance sm:text-5xl;
+  }
+}
