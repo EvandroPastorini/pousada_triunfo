@@ -10,17 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         moss: {
-          50: "#fffaf0",
-          100: "#f1eadc",
-          300: "#c0c0c0",
+          50: "#fcebdd",
+          100: "#EACDB4",
+          300: "#ECD9AB",
           500: "#8b5d33",
-          700: "#5f3f23",
-          900: "#24170f",
+          700: "#5a3a22",
+          900: "#241910",
         },
-        marigold: "#ffd700",
-        lavender: "#b8860b",
+        marigold: "#e7c49b",
+        lavender: "#8b5d33",
         clay: "#8b5d33",
-        linen: "#fffaf0",
+        linen: "#fcebdd",
       },
       fontFamily: {
         display: ["Troye Serif", "Cormorant Garamond", "Georgia", "Cambria", "Times New Roman", "serif"],
@@ -28,7 +28,7 @@ const config: Config = {
         sans: ["Morisawa", "Avenir Next", "Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 20px 60px rgba(139, 93, 51, 0.14)",
+        soft: "0 20px 60px rgba(95, 70, 48, 0.13)",
       },
     },
   },

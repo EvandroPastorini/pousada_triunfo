@@ -55,7 +55,7 @@ export default function Home() {
 
       <a
         aria-label="Chamar a Pousada Triunfo no WhatsApp"
-        className="fixed bottom-5 right-5 z-40 inline-flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_16px_40px_rgba(37,211,102,0.35)] transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-moss-900"
+        className="fixed bottom-5 right-5 z-40 inline-flex size-14 items-center justify-center rounded-full bg-[#4faa72] text-white shadow-[0_16px_40px_rgba(79,170,114,0.28)] transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-moss-900"
         href={whatsappUrl}
         rel="noreferrer"
         target="_blank"
@@ -68,24 +68,30 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/20 bg-moss-900/70 text-white backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-moss-500/18 bg-[#fcebdd]/96 text-moss-700 shadow-[0_12px_36px_rgba(90,58,34,0.14)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <a className="flex items-center gap-3" href="#inicio" aria-label="Pousada Triunfo">
-          <span className="relative size-12 overflow-hidden rounded-full shadow-soft">
-            <Image src="/images/logo-brand.png" alt="" fill sizes="48px" className="object-cover" />
+          <span className="relative size-14 overflow-hidden rounded-full bg-white shadow-soft ring-1 ring-moss-500/18">
+            <Image
+              src="/images/logo-old.png"
+              alt=""
+              fill
+              sizes="56px"
+              className="object-contain p-1.5"
+            />
           </span>
           <span className="leading-tight">
-            <span className="block text-sm font-semibold tracking-[0.18em] text-marigold">
+            <span className="block text-sm font-extrabold tracking-[0.18em] text-clay">
               POUSADA
             </span>
-            <span className="block font-display text-xl">Triunfo</span>
+            <span className="block font-display text-xl font-semibold text-moss-700">Triunfo</span>
           </span>
         </a>
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-7 md:flex">
           {navItems.map((item) => (
             <a
-              className="text-sm font-medium text-white/86 transition hover:text-marigold"
+              className="text-sm font-bold text-moss-700 transition hover:text-clay"
               href={item.href}
               key={item.href}
             >
@@ -95,7 +101,7 @@ function Header() {
         </nav>
 
         <a
-          className="hidden items-center gap-2 rounded-full bg-marigold px-5 py-2.5 text-sm font-bold text-moss-900 transition hover:bg-white sm:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-marigold px-5 py-2.5 text-sm font-extrabold text-moss-700 shadow-soft ring-1 ring-moss-500/10 transition hover:bg-moss-100 sm:inline-flex"
           href={whatsappUrl}
           rel="noreferrer"
           target="_blank"
@@ -322,18 +328,18 @@ function Location() {
 
 function ContactFooter() {
   return (
-    <footer id="contato" className="bg-moss-900 text-white">
+    <footer id="contato" className="bg-moss-50 text-moss-900">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
         <div>
           <Image
-            src="/images/logo-brand.png"
-            alt="Logo Jardins da Gästehaus"
+            src="/images/logo-old.png"
+            alt="Logo da Pousada Triunfo"
             width={168}
             height={168}
-            className="rounded-[8px] shadow-soft"
+            className="rounded-[8px] bg-linen/70 p-3 shadow-soft ring-1 ring-moss-500/10 mix-blend-multiply"
           />
           <h2 className="mt-8 font-display text-4xl">Planeje sua estadia.</h2>
-          <p className="mt-4 max-w-lg leading-7 text-white/75">
+          <p className="mt-4 max-w-lg leading-7 text-moss-700">
             Fale com a pousada para tirar dúvidas, consultar disponibilidade ou receber
             orientações sobre acesso.
           </p>
@@ -358,7 +364,7 @@ function ContactFooter() {
           />
         </div>
       </div>
-      <div className="border-t border-white/10 px-4 py-6 text-center text-sm text-white/60">
+      <div className="border-t border-moss-500/10 px-4 py-6 text-center text-sm text-moss-700">
         © 2026 Pousada Triunfo. Site institucional preparado para deploy na Vercel.
       </div>
     </footer>
@@ -380,16 +386,16 @@ function ContactLink({
 }) {
   return (
     <a
-      className="rounded-[8px] border border-white/12 bg-white/6 p-5 transition hover:border-marigold hover:bg-white/10"
+      className="rounded-[8px] border border-moss-500/14 bg-white/38 p-5 shadow-[0_12px_35px_rgba(90,58,34,0.06)] transition hover:border-clay/35 hover:bg-white/58"
       href={href}
       rel={external ? "noreferrer" : undefined}
       target={external ? "_blank" : undefined}
     >
       <Icon aria-hidden className="size-6 text-marigold" />
-      <span className="mt-5 block text-sm font-bold uppercase tracking-[0.14em] text-white/55">
+      <span className="mt-5 block text-sm font-bold uppercase tracking-[0.14em] text-moss-500">
         {label}
       </span>
-      <span className="mt-2 block break-words text-lg font-semibold text-white">{value}</span>
+      <span className="mt-2 block break-words text-lg font-semibold text-moss-900">{value}</span>
     </a>
   );
 }
