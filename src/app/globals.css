@@ -26,7 +26,7 @@ iframe {
 
 @layer components {
   .section-kicker {
-    @apply mb-4 inline-flex items-center gap-2 font-subtitle text-sm font-bold uppercase tracking-[0.18em] text-lavender;
+    @apply mb-4 inline-flex items-center gap-2 font-subtitle text-xs font-bold uppercase tracking-[0.24em] text-clay sm:text-sm;
   }
 
   .section-kicker::before {
@@ -35,6 +35,10 @@ iframe {
   }
 
   .section-title {
-    @apply max-w-3xl font-display text-4xl leading-tight text-moss-900 text-balance sm:text-5xl;
+    @apply max-w-3xl font-display text-4xl leading-[1.05] text-moss-900 text-balance sm:text-5xl lg:text-6xl;
+  }
+
+  .section-copy {
+    @apply max-w-2xl text-base leading-8 text-moss-700 sm:text-lg;
   }
 }
