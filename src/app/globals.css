@@ -13,7 +13,7 @@
 
 body {
   margin: 0;
-  background: #fcebdd;
+  @apply bg-linen;
   font-family: Morisawa, "Avenir Next", Montserrat, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
 }

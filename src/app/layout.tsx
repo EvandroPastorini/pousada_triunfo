@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { brand } from "@/lib/brand";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.pousadatriunfo.com.br"),
-  title: "Pousada Triunfo | Hospedagem em Triunfo, RS",
+  title: `${brand.name} | Hospedagem em Triunfo, RS`,
   description:
-    "Site institucional da Pousada Triunfo em Triunfo, RS. Conheça a pousada, acomodações, galeria, localização e fale pelo WhatsApp.",
+    `Site institucional da ${brand.name} em Triunfo, RS. Conheça a pousada, acomodações, galeria, localização e fale pelo WhatsApp.`,
   icons: {
-    icon: "/images/logo-brand.png",
-    apple: "/images/logo-brand.png",
+    icon: brand.logos.favicon,
+    apple: brand.logos.apple,
   },
   openGraph: {
-    title: "Pousada Triunfo",
+    title: brand.name,
     description:
       "Conforto, natureza e acolhimento em Triunfo, RS. Fale pelo WhatsApp e planeje sua hospedagem.",
     images: ["/images/hero-01.png"],

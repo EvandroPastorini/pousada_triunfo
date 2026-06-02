@@ -9,6 +9,7 @@ import {
   Star,
 } from "lucide-react";
 import { LightboxGallery } from "@/components/LightboxGallery";
+import { brand } from "@/lib/brand";
 import {
   accommodations,
   amenities,
@@ -23,7 +24,7 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Hotel",
-    name: "Pousada Triunfo",
+    name: brand.name,
     image: "/images/hero-01.png",
     address: {
       "@type": "PostalAddress",
@@ -54,8 +55,8 @@ export default function Home() {
       <ContactFooter />
 
       <a
-        aria-label="Chamar a Pousada Triunfo no WhatsApp"
-        className="fixed bottom-5 right-5 z-40 inline-flex size-14 items-center justify-center rounded-full bg-[#4f9f70] text-white shadow-[0_18px_45px_rgba(79,159,112,0.32)] transition hover:scale-105 hover:bg-[#438e63] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-moss-900"
+        aria-label={`Chamar a ${brand.name} no WhatsApp`}
+        className="fixed bottom-5 right-5 z-40 inline-flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-[0_18px_45px_rgba(79,159,112,0.32)] transition hover:scale-105 hover:bg-whatsapp-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-moss-900"
         href={whatsappUrl}
         rel="noreferrer"
         target="_blank"
@@ -68,12 +69,12 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-moss-500/18 bg-[#fcebdd]/95 text-moss-700 shadow-[0_12px_36px_rgba(90,58,34,0.14)] backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-moss-500/18 bg-linen/95 text-moss-700 shadow-[0_12px_36px_rgba(90,58,34,0.14)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
-        <a className="flex items-center gap-3" href="#inicio" aria-label="Pousada Triunfo">
+        <a className="flex items-center gap-3" href="#inicio" aria-label={brand.name}>
           <span className="relative size-14 overflow-hidden rounded-full bg-white shadow-soft ring-1 ring-moss-500/18">
             <Image
-              src="/images/logo-old.png"
+              src={brand.logos.header}
               alt=""
               fill
               sizes="56px"
@@ -84,7 +85,9 @@ function Header() {
             <span className="block text-sm font-extrabold tracking-[0.18em] text-clay">
               POUSADA
             </span>
-            <span className="block font-display text-xl font-semibold text-moss-700">Triunfo</span>
+            <span className="block font-display text-lg font-semibold text-moss-700 sm:text-xl">
+              {brand.shortName}
+            </span>
           </span>
         </a>
 
@@ -119,7 +122,7 @@ function Hero() {
     <section id="inicio" className="relative min-h-[94svh] overflow-hidden bg-moss-900 text-white">
       <Image
         src="/images/hero-01.png"
-        alt="Pôr do sol sobre lago e jardins na Pousada Triunfo"
+        alt={`Pôr do sol sobre lago e jardins na ${brand.name}`}
         fill
         fetchPriority="high"
         loading="eager"
@@ -128,7 +131,7 @@ function Hero() {
       />
       <Image
         src="/images/gallery-casal.jpg"
-        alt="Quarto de casal aconchegante da Pousada Triunfo"
+        alt={`Quarto de casal aconchegante da ${brand.name}`}
         fill
         fetchPriority="high"
         loading="eager"
@@ -140,13 +143,13 @@ function Hero() {
       <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-linen via-linen/72 to-transparent" />
 
       <div className="relative mx-auto flex min-h-[94svh] max-w-7xl flex-col justify-end px-4 pb-20 pt-32 sm:px-6 lg:px-8 lg:pb-24">
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/22 bg-moss-900/76 px-4 py-2 text-sm font-semibold text-white shadow-soft backdrop-blur">
             <Star aria-hidden className="size-4 fill-marigold" />
             Hospedagem acolhedora em Triunfo, RS
           </p>
-          <h1 className="font-display text-5xl leading-[0.95] text-balance drop-shadow-[0_4px_18px_rgba(0,0,0,0.38)] sm:text-7xl lg:text-8xl">
-            Pousada Triunfo
+          <h1 className="font-display text-4xl leading-[0.98] text-balance drop-shadow-[0_4px_18px_rgba(0,0,0,0.38)] sm:text-6xl lg:text-7xl">
+            {brand.name}
           </h1>
           <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-xl">
             Conforto, natureza e a calma de uma pousada familiar para criar memórias em uma
@@ -154,7 +157,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-marigold px-7 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-moss-900 shadow-[0_18px_45px_rgba(231,196,155,0.28)] transition hover:-translate-y-0.5 hover:bg-[#EACDB4]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-marigold px-7 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100"
               href={whatsappUrl}
               rel="noreferrer"
               target="_blank"
@@ -197,7 +200,7 @@ function About() {
           <p className="section-kicker">Sobre a pousada</p>
           <h2 className="section-title">Um refúgio de família para família.</h2>
           <p className="section-copy mt-7">
-            Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a Pousada Triunfo
+            Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a {brand.name}
             recebe hóspedes que procuram descanso com conforto e uma experiência mais próxima,
             humana e sensorial.
           </p>
@@ -328,7 +331,7 @@ function Location() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             src={contact.mapUrl}
-            title="Mapa com a localização da Pousada Triunfo"
+            title={`Mapa com a localização da ${brand.name}`}
           />
         </div>
       </div>
@@ -342,8 +345,8 @@ function ContactFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
         <div>
           <Image
-            src="/images/logo-old.png"
-            alt="Logo da Pousada Triunfo"
+            src={brand.logos.footer}
+            alt={`Logo da ${brand.name}`}
             width={168}
             height={168}
             className="rounded-[8px] bg-linen/70 p-3 shadow-soft ring-1 ring-moss-500/10 mix-blend-multiply"
@@ -375,7 +378,7 @@ function ContactFooter() {
         </div>
       </div>
       <div className="border-t border-moss-500/10 px-4 py-7 text-center text-sm text-moss-700">
-        © 2026 Pousada Triunfo. Site institucional preparado para deploy na Vercel.
+        © 2026 {brand.name}. Site institucional preparado para deploy na Vercel.
       </div>
     </footer>
   );

@@ -9,6 +9,7 @@ import {
   TreePine,
   Wifi,
 } from "lucide-react";
+import { brand } from "@/lib/brand";
 
 export const contact = {
   phone: "+55 51 98062-6716",
@@ -23,7 +24,7 @@ export const contact = {
 };
 
 export const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-  "Olá! Gostaria de saber mais sobre hospedagem na Pousada Triunfo.",
+  `Olá! Gostaria de saber mais sobre hospedagem na ${brand.name}.`,
 )}`;
 
 export const navItems = [

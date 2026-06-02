@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { brand } from "./src/lib/brand";
 
 const config: Config = {
   content: [
@@ -10,17 +11,19 @@ const config: Config = {
     extend: {
       colors: {
         moss: {
-          50: "#fcebdd",
-          100: "#EACDB4",
-          300: "#ECD9AB",
-          500: "#8b5d33",
-          700: "#6f4729",
-          900: "#2d1d12",
+          50: brand.colors.linen,
+          100: brand.colors.softPeach,
+          300: brand.colors.paleGold,
+          500: brand.colors.clay,
+          700: brand.colors.clayDark,
+          900: brand.colors.ink,
         },
-        marigold: "#e7c49b",
-        lavender: "#8b5d33",
-        clay: "#8b5d33",
-        linen: "#fcebdd",
+        marigold: brand.colors.accent,
+        lavender: brand.colors.clay,
+        clay: brand.colors.clay,
+        linen: brand.colors.linen,
+        whatsapp: brand.colors.whatsapp,
+        "whatsapp-hover": brand.colors.whatsappHover,
       },
       fontFamily: {
         display: ["Troye Serif", "Cormorant Garamond", "Georgia", "Cambria", "Times New Roman", "serif"],
