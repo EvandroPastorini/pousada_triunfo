@@ -1,11 +1,14 @@
 import Image from "next/image";
 import {
   ArrowRight,
+  CheckCircle,
+  ExternalLink,
   Instagram,
   Mail,
   MapPinned,
   MessageCircle,
   Phone,
+  Quote,
   Star,
 } from "lucide-react";
 import { LightboxGallery } from "@/components/LightboxGallery";
@@ -14,9 +17,15 @@ import {
   accommodations,
   amenities,
   contact,
+  experienceHighlights,
   gallery,
   highlights,
   navItems,
+  regionHighlights,
+  reviews,
+  reviewStats,
+  services,
+  stayModes,
   whatsappUrl,
 } from "@/lib/site-data";
 
@@ -49,8 +58,10 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
+      <Experience />
       <Gallery />
       <Accommodations />
+      <Reviews />
       <Location />
       <ContactFooter />
 
@@ -119,7 +130,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[94svh] overflow-hidden bg-moss-900 text-white">
+    <section id="inicio" className="relative min-h-[94svh] scroll-mt-24 overflow-hidden bg-moss-900 text-white">
       <Image
         src="/images/hero-01.png"
         alt={`Pôr do sol sobre lago e jardins na ${brand.name}`}
@@ -194,20 +205,19 @@ function Hero() {
 
 function About() {
   return (
-    <section id="sobre" className="bg-linen py-24 sm:py-32">
+    <section id="sobre" className="scroll-mt-24 bg-linen py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
         <div>
           <p className="section-kicker">Sobre a pousada</p>
           <h2 className="section-title">Um refúgio de família para família.</h2>
           <p className="section-copy mt-7">
             Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a {brand.name}
-            recebe hóspedes que procuram descanso com conforto e uma experiência mais próxima,
-            humana e sensorial.
+            nasceu do desejo de compartilhar um lugar único, acolhedor e exclusivo, onde a
+            natureza encontra a sofisticação sem deixar a simplicidade.
           </p>
           <p className="mt-5 max-w-2xl leading-8 text-moss-700">
-            A proposta é simples e valiosa: acordar cercado pelo verde, aproveitar ambientes
-            acolhedores e voltar para casa com a sensação de ter vivido dias leves, bem cuidados
-            e memoráveis.
+            A proposta é simples e valiosa: celebrar uma ocasião especial, reunir pessoas queridas
+            ou simplesmente desacelerar em um ambiente confortável, elegante e cuidado nos detalhes.
           </p>
         </div>
 
@@ -230,9 +240,60 @@ function About() {
   );
 }
 
+function Experience() {
+  return (
+    <section id="experiencia" className="scroll-mt-24 bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+          <div>
+            <p className="section-kicker">Experiência</p>
+            <h2 className="section-title">Contemplação, privacidade e charme em meio aos jardins.</h2>
+          </div>
+          <p className="section-copy lg:pb-2">
+            A pousada foi pensada para receber cada hóspede de maneira única, valorizando as
+            características locais, o respeito ao meio ambiente e uma hospitalidade atenta aos
+            pequenos detalhes.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          {experienceHighlights.map((item) => (
+            <article
+              className="rounded-[8px] border border-moss-500/10 bg-linen/70 p-7 shadow-soft"
+              key={item.title}
+            >
+              <span className="inline-flex size-12 items-center justify-center rounded-full bg-marigold/30 text-clay">
+                <item.icon aria-hidden className="size-6" />
+              </span>
+              <p className="mt-7 text-xs font-extrabold uppercase tracking-[0.18em] text-clay">
+                {item.eyebrow}
+              </p>
+              <h3 className="mt-3 font-display text-3xl leading-tight text-moss-900">{item.title}</h3>
+              <p className="mt-4 leading-7 text-moss-700">{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 rounded-[8px] border border-moss-500/10 bg-moss-900 p-6 text-white shadow-soft sm:p-8">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((item) => (
+              <div className="flex items-center gap-3" key={item.label}>
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-marigold/18 text-marigold">
+                  <item.icon aria-hidden className="size-5" />
+                </span>
+                <span className="text-sm font-semibold leading-snug text-white/90">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Gallery() {
   return (
-    <section id="galeria" className="bg-white py-24 sm:py-32">
+    <section id="galeria" className="scroll-mt-24 bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div>
@@ -253,11 +314,32 @@ function Gallery() {
 
 function Accommodations() {
   return (
-    <section id="acomodacoes" className="bg-moss-50 py-24 sm:py-32">
+    <section id="acomodacoes" className="scroll-mt-24 bg-moss-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="section-kicker justify-center">Acomodações</p>
-          <h2 className="section-title">Conforto essencial, visual acolhedor e contato com o verde.</h2>
+          <h2 className="section-title mx-auto">
+            Escolha entre a casa de campo completa ou quartos avulsos.
+          </h2>
+          <p className="section-copy mx-auto mt-6">
+            A pousada conta com 4 suítes distribuídas em categorias de hospedagem para diferentes
+            momentos: exclusividade para grupos ou uma estadia mais econômica por quarto.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          {stayModes.map((mode) => (
+            <article
+              className="rounded-[8px] border border-moss-500/10 bg-white/58 p-6 shadow-[0_12px_35px_rgba(90,58,34,0.06)]"
+              key={mode.title}
+            >
+              <span className="inline-flex size-11 items-center justify-center rounded-full bg-marigold/30 text-clay">
+                <mode.icon aria-hidden className="size-5" />
+              </span>
+              <h3 className="mt-5 font-display text-2xl leading-tight text-moss-900">{mode.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-moss-700">{mode.text}</p>
+            </article>
+          ))}
         </div>
 
         <div className="mt-14 grid gap-7 md:grid-cols-3">
@@ -277,8 +359,19 @@ function Accommodations() {
                 <span className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-moss-900/32 to-transparent" />
               </div>
               <div className="p-7">
+                <p className="mb-3 inline-flex rounded-full bg-marigold/24 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em] text-clay">
+                  {room.tag}
+                </p>
                 <h3 className="font-display text-3xl leading-tight text-moss-900">{room.name}</h3>
                 <p className="mt-4 leading-7 text-moss-700">{room.description}</p>
+                <ul className="mt-6 space-y-3">
+                  {room.features.map((feature) => (
+                    <li className="flex gap-3 text-sm font-semibold text-moss-700" key={feature}>
+                      <CheckCircle aria-hidden className="mt-0.5 size-4 shrink-0 text-clay" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
                 <a
                   className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.12em] text-clay transition hover:translate-x-1 hover:text-moss-700"
                   href={whatsappUrl}
@@ -297,9 +390,76 @@ function Accommodations() {
   );
 }
 
+function Reviews() {
+  return (
+    <section id="avaliacoes" className="scroll-mt-24 bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <p className="section-kicker">Avaliações</p>
+            <h2 className="section-title">O que os hóspedes sentem quando vivem os jardins.</h2>
+            <p className="section-copy mt-7">
+              A experiência aparece nas palavras de quem valoriza acolhimento, silêncio, ar puro,
+              natureza e uma recepção feita com atenção.
+            </p>
+            <div className="mt-9 grid grid-cols-3 gap-3">
+              {reviewStats.map((item) => (
+                <div
+                  className="rounded-[8px] border border-moss-500/10 bg-linen/70 p-4 text-center"
+                  key={item.label}
+                >
+                  <strong className="block font-display text-3xl leading-none text-moss-900">
+                    {item.value}
+                  </strong>
+                  <span className="mt-2 block text-xs font-bold uppercase tracking-[0.12em] text-moss-700">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <a
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
+              href={contact.googleReviewsUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Ver no Google
+              <ExternalLink aria-hidden className="size-4" />
+            </a>
+          </div>
+
+          <div className="grid gap-5">
+            {reviews.map((review) => (
+              <article
+                className="rounded-[8px] border border-moss-500/10 bg-linen/55 p-7 shadow-soft"
+                key={review.quote}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <Quote aria-hidden className="size-8 text-clay" />
+                  <div className="flex gap-1 text-marigold" aria-label="Avaliação cinco estrelas">
+                    {Array.from({ length: 5 }).map((_, index) => (
+                      <Star aria-hidden className="size-4 fill-marigold" key={index} />
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-6 font-display text-2xl leading-snug text-moss-900">
+                  “{review.quote}”
+                </p>
+                <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-moss-700">
+                  {review.author} · {review.source}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Location() {
   return (
-    <section id="localizacao" className="bg-white py-24 sm:py-32">
+    <section id="localizacao" className="scroll-mt-24 bg-white py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <div>
           <p className="section-kicker">Localização</p>
@@ -310,10 +470,19 @@ function Location() {
               <span>{contact.address}</span>
             </p>
             <p className="leading-7">
-              A pousada fica em uma área calma, ideal para quem busca descanso, natureza e um
-              ponto de apoio confortável em Triunfo.
+              A pousada fica em uma área calma, ideal para quem busca descanso, natureza e um ponto
+              de apoio confortável em uma cidade de história farroupilha, ruas açorianas e produtos
+              locais premiados.
             </p>
           </div>
+          <ul className="mt-7 space-y-3">
+            {regionHighlights.map((item) => (
+              <li className="flex gap-3 text-sm font-semibold text-moss-700" key={item}>
+                <CheckCircle aria-hidden className="mt-0.5 size-4 shrink-0 text-clay" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
           <a
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
             href={contact.directionsUrl}
@@ -341,7 +510,7 @@ function Location() {
 
 function ContactFooter() {
   return (
-    <footer id="contato" className="bg-moss-50 text-moss-900">
+    <footer id="contato" className="scroll-mt-24 bg-moss-50 text-moss-900">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
         <div>
           <Image
