@@ -208,7 +208,7 @@ function About() {
         <div className="grid gap-5 sm:grid-cols-3">
           {highlights.map((item) => (
             <article
-              className="rounded-[8px] border border-moss-500/10 bg-white/62 p-7 shadow-soft transition hover:-translate-y-1 hover:bg-white/82"
+              className="rounded-[8px] border border-moss-500/10 bg-white p-7 shadow-soft transition hover:-translate-y-1 hover:bg-white/82"
               key={item.title}
             >
               <span className="inline-flex size-11 items-center justify-center rounded-full bg-marigold/32 text-clay">
@@ -315,7 +315,7 @@ function Accommodations() {
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {stayModes.map((mode) => (
             <article
-              className="rounded-[8px] border border-moss-500/10 bg-white/58 p-6 shadow-[0_12px_35px_rgba(90,58,34,0.06)]"
+              className="rounded-[8px] border border-moss-500/10 bg-white p-6 shadow-[0_12px_35px_rgba(90,58,34,0.06)]"
               key={mode.title}
             >
               <span className="inline-flex size-11 items-center justify-center rounded-full bg-marigold/30 text-clay">
@@ -552,7 +552,7 @@ function ContactLink({
 }) {
   return (
     <a
-      className="rounded-[8px] border border-moss-500/14 bg-white/44 p-6 shadow-[0_12px_35px_rgba(90,58,34,0.06)] transition hover:-translate-y-1 hover:border-clay/35 hover:bg-white/70"
+      className="rounded-[8px] border border-moss-500/14 bg-white p-6 shadow-[0_12px_35px_rgba(90,58,34,0.06)] transition hover:-translate-y-1 hover:border-clay/35 hover:bg-white/70"
       href={href}
       rel={external ? "noreferrer" : undefined}
       target={external ? "_blank" : undefined}
