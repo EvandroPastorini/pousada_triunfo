@@ -227,20 +227,20 @@ export const accommodations = [
     features: ["Privacidade total", "Ideal para grupos", "Áreas comuns exclusivas"],
   },
   {
-    name: "Suítes Jardins",
-    image: "/images/gallery-hidro.jpg",
-    tag: "Hospedagem individual",
+    name: "Quarto Rosas",
+    image: "/images/gallery-casal.jpg",
+    tag: "Casal",
     description:
-      "Acomodações confortáveis para quem busca descanso com charme, ar-condicionado, Wi-Fi e clima acolhedor junto ao verde.",
-    features: ["Cama confortável", "Ar-condicionado", "Vista para os jardins"],
+      "Quarto de casal com janela voltada para as roseiras e para a frente da pousada, ideal para uma estadia tranquila a dois.",
+    features: ["Cama de casal", "Vista para as roseiras", "Frente da pousada"],
   },
   {
-    name: "Quartos Econômicos",
-    image: "/images/gallery-bangalo.png",
-    tag: "Opção mais acessível",
+    name: "Quarto Lavandas",
+    image: "/images/hero-02.png",
+    tag: "Até 4 pessoas",
     description:
-      "Alternativa para quem quer viver a experiência da pousada com melhor custo-benefício, reservando apenas o quarto.",
-    features: ["Reserva por quarto", "Acesso à pousada", "Café da manhã sob consulta"],
+      "Acomodação para até 4 pessoas, com uma cama de casal e duas camas de solteiro. A janela tem vista para o lavandário.",
+    features: ["1 cama de casal", "2 camas de solteiro", "Vista para o lavandário"],
   },
 ];
 
