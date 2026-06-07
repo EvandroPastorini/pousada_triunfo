@@ -11,6 +11,7 @@ import {
   Quote,
   Star,
 } from "lucide-react";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { LightboxGallery } from "@/components/LightboxGallery";
 import { brand } from "@/lib/brand";
 import {
@@ -20,6 +21,7 @@ import {
   experienceHighlights,
   gallery,
   highlights,
+  heroSlides,
   navItems,
   regionHighlights,
   reviews,
@@ -80,7 +82,7 @@ export default function Home() {
 
 function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-moss-500/18 bg-linen/95 text-moss-700 shadow-[0_12px_36px_rgba(90,58,34,0.14)] backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/45 bg-[rgba(252,235,221,0.64)] text-moss-700 shadow-[0_10px_28px_rgba(90,58,34,0.08)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8">
         <a className="flex items-center gap-3" href="#inicio" aria-label={brand.name}>
           <span className="relative size-14 overflow-hidden rounded-full bg-white shadow-soft ring-1 ring-moss-500/18">
@@ -115,7 +117,7 @@ function Header() {
         </nav>
 
         <a
-          className="hidden items-center gap-2 rounded-full bg-clay px-5 py-2.5 text-sm font-extrabold text-white shadow-soft ring-1 ring-moss-500/10 transition hover:bg-moss-700 sm:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-marigold/85 px-5 py-2.5 text-sm font-semibold text-moss-900 shadow-soft ring-1 ring-white/40 transition hover:bg-marigold sm:inline-flex"
           href={whatsappUrl}
           rel="noreferrer"
           target="_blank"
@@ -131,24 +133,7 @@ function Header() {
 function Hero() {
   return (
     <section id="inicio" className="relative min-h-[94svh] scroll-mt-24 overflow-hidden bg-moss-900 text-white">
-      <Image
-        src="/images/hero-01.png"
-        alt={`Pôr do sol sobre lago e jardins na ${brand.name}`}
-        fill
-        fetchPriority="high"
-        loading="eager"
-        sizes="(max-width: 1023px) 100vw, 0px"
-        className="object-cover lg:hidden"
-      />
-      <Image
-        src="/images/gallery-casal.jpg"
-        alt={`Quarto de casal aconchegante da ${brand.name}`}
-        fill
-        fetchPriority="high"
-        loading="eager"
-        sizes="(min-width: 1024px) 100vw, 0px"
-        className="hidden object-cover object-center lg:block"
-      />
+      <HeroCarousel desktopSlides={heroSlides.desktop} mobileSlides={heroSlides.mobile} />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(45,29,18,0.92)_0%,rgba(45,29,18,0.76)_34%,rgba(45,29,18,0.42)_67%,rgba(45,29,18,0.22)_100%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_46%,rgba(0,0,0,0.28),transparent_42%)]" />
       <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-linen via-linen/72 to-transparent" />
@@ -168,7 +153,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-marigold px-7 py-4 text-sm font-extrabold uppercase tracking-[0.12em] text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-marigold px-7 py-4 text-sm font-semibold tracking-[0.02em] text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100"
               href={whatsappUrl}
               rel="noreferrer"
               target="_blank"
@@ -274,14 +259,14 @@ function Experience() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-[8px] border border-moss-500/10 bg-moss-900 p-6 text-white shadow-soft sm:p-8">
+        <div className="mt-10 rounded-[8px] border border-clay/12 bg-[rgba(252,235,221,0.72)] p-6 text-moss-700 shadow-[0_18px_55px_rgba(95,70,48,0.08)] backdrop-blur-sm sm:p-8">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((item) => (
               <div className="flex items-center gap-3" key={item.label}>
-                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-marigold/18 text-marigold">
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/58 text-clay ring-1 ring-clay/10">
                   <item.icon aria-hidden className="size-5" />
                 </span>
-                <span className="text-sm font-semibold leading-snug text-white/90">{item.label}</span>
+                <span className="text-sm font-semibold leading-snug text-moss-700">{item.label}</span>
               </div>
             ))}
           </div>
@@ -402,23 +387,23 @@ function Reviews() {
               A experiência aparece nas palavras de quem valoriza acolhimento, silêncio, ar puro,
               natureza e uma recepção feita com atenção.
             </p>
-            <div className="mt-9 grid grid-cols-3 gap-3">
+            <div className="mt-10 divide-y divide-clay/10 border-y border-clay/12 py-1 sm:grid sm:grid-cols-3 sm:divide-y-0 sm:py-5">
               {reviewStats.map((item) => (
                 <div
-                  className="rounded-[8px] border border-moss-500/10 bg-linen/70 p-4 text-center"
+                  className="flex items-baseline justify-between gap-5 py-4 sm:flex-col sm:items-center sm:justify-start sm:gap-2 sm:py-0 sm:text-center"
                   key={item.label}
                 >
-                  <strong className="block font-display text-3xl leading-none text-moss-900">
+                  <strong className="order-2 block shrink-0 font-display text-2xl leading-none text-clay sm:order-1 sm:text-3xl">
                     {item.value}
                   </strong>
-                  <span className="mt-2 block text-xs font-bold uppercase tracking-[0.12em] text-moss-700">
+                  <span className="order-1 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-moss-500/80 sm:order-2">
                     {item.label}
                   </span>
                 </div>
               ))}
             </div>
             <a
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-marigold/85 px-6 py-3 text-sm font-semibold tracking-[0.02em] text-moss-900 shadow-soft ring-1 ring-white/40 transition hover:-translate-y-0.5 hover:bg-marigold"
               href={contact.googleReviewsUrl}
               rel="noreferrer"
               target="_blank"

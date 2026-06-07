@@ -75,6 +75,48 @@ export const amenities = [
   { icon: BedDouble, label: "4 acomodações" },
 ];
 
+export const heroSlides = {
+  desktop: [
+    {
+      src: "/images/drive-extra/fachada-noite2.png",
+      alt: "Fachada iluminada da Pousada Jardins da Gästehaus ao anoitecer",
+      position: "object-center",
+    },
+    {
+      src: "/images/drive-extra/petit-spa.jpg",
+      alt: "Experiência de massagem nos jardins da pousada",
+      position: "object-center",
+    },
+    {
+      src: "/images/hero-desktop.jpg",
+      alt: "Detalhe acolhedor do café rural da pousada",
+      position: "object-center",
+    },
+  ],
+  mobile: [
+    {
+      src: "/images/drive-extra/fachada-dia.jpg",
+      alt: "Fachada da pousada cercada por jardins durante o dia",
+      position: "object-center",
+    },
+    {
+      src: "/images/drive-extra/varanda-descanso.jpg",
+      alt: "Hóspedes descansando em redes na varanda da pousada",
+      position: "object-center",
+    },
+    {
+      src: "/images/hero-01.png",
+      alt: "Lago e pôr do sol na área externa da pousada",
+      position: "object-center",
+    },
+    {
+      src: "/images/gallery-hidro.jpg",
+      alt: "Banheira de hidromassagem em acomodação da pousada",
+      position: "object-center",
+    },
+  ],
+};
+
 export const experienceHighlights = [
   {
     icon: Leaf,
@@ -109,14 +151,29 @@ export const services = [
 
 export const gallery = [
   {
+    src: "/images/drive-extra/fachada-dia.jpg",
+    alt: "Fachada da Pousada Jardins da Gästehaus durante o dia, cercada por jardins",
+    category: "Casa de campo",
+  },
+  {
     src: "/images/gallery-nature.png",
     alt: "Lago e pôr do sol na área externa da pousada",
     category: "Natureza",
   },
   {
+    src: "/images/drive-extra/salao-interno.jpg",
+    alt: "Salão interno amplo da pousada com teto de madeira e área de convivência",
+    category: "Interiores",
+  },
+  {
     src: "/images/gallery-bangalo.png",
     alt: "Bangalô à beira do lago",
     category: "Áreas externas",
+  },
+  {
+    src: "/images/drive-extra/fachada-noite.jpg",
+    alt: "Fachada iluminada da pousada ao anoitecer",
+    category: "Fachada",
   },
   {
     src: "/images/gallery-casal.jpg",
@@ -143,12 +200,27 @@ export const gallery = [
     alt: "Cama arrumada em acomodação aconchegante",
     category: "Conforto",
   },
+  {
+    src: "/images/drive-extra/varanda-descanso.jpg",
+    alt: "Hóspedes descansando em redes na varanda com vista para os jardins",
+    category: "Descanso",
+  },
+  {
+    src: "/images/drive-extra/cafe-na-cama.jpg",
+    alt: "Café servido na cama em uma das acomodações",
+    category: "Café",
+  },
+  {
+    src: "/images/drive-extra/petit-spa.jpg",
+    alt: "Experiência de massagem ao ar livre nos jardins da pousada",
+    category: "Petit Spa",
+  },
 ];
 
 export const accommodations = [
   {
     name: "Casa de Campo Completa",
-    image: "/images/gallery-casal.jpg",
+    image: "/images/drive-extra/fachada-dia.jpg",
     tag: "Espaço inteiro",
     description:
       "Locação exclusiva da pousada para famílias, grupos e encontros especiais, com acesso aos jardins, deck, lounge e às 4 suítes.",
