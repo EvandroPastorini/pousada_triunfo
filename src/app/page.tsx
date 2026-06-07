@@ -306,8 +306,9 @@ function Accommodations() {
             Escolha entre a casa de campo completa ou quartos avulsos.
           </h2>
           <p className="section-copy mx-auto mt-6">
-            A pousada conta com 4 suítes distribuídas em categorias de hospedagem para diferentes
-            momentos: exclusividade para grupos ou uma estadia mais econômica por quarto.
+            A pousada conta com quartos e cabana distribuídos em opções de hospedagem para
+            diferentes momentos: exclusividade para grupos ou uma estadia mais econômica por
+            acomodação.
           </p>
         </div>
 
@@ -326,7 +327,7 @@ function Accommodations() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-7 md:grid-cols-3">
+        <div className="mt-14 grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
           {accommodations.map((room) => (
             <article
               className="group overflow-hidden rounded-[8px] border border-moss-500/10 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(95,70,48,0.16)]"

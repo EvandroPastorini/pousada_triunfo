@@ -171,6 +171,11 @@ export const gallery = [
     category: "Áreas externas",
   },
   {
+    src: "/images/drive-extra/cabana-umbu.jpg",
+    alt: "Cabana Umbu cercada pela natureza, com deck de madeira e rede",
+    category: "Cabana Umbu",
+  },
+  {
     src: "/images/drive-extra/fachada-noite.jpg",
     alt: "Fachada iluminada da pousada ao anoitecer",
     category: "Fachada",
@@ -242,6 +247,14 @@ export const accommodations = [
       "Acomodação para até 4 pessoas, com uma cama de casal e duas camas de solteiro. A janela tem vista para o lavandário.",
     features: ["1 cama de casal", "2 camas de solteiro", "Vista para o lavandário"],
   },
+  {
+    name: "Cabana Umbu",
+    image: "/images/drive-extra/cabana-umbu.jpg",
+    tag: "Cabana",
+    description:
+      "Cabana privativa em meio ao verde, com deck de madeira e rede para descansar cercado pela natureza.",
+    features: ["Deck com rede", "Cercada pelo verde", "Experiência reservada"],
+  },
 ];
 
 export const stayModes = [
@@ -284,7 +297,7 @@ export const reviews = [
 ];
 
 export const reviewStats = [
-  { value: "4", label: "suítes" },
+  { value: "4", label: "acomodações" },
   { value: "40 mil m²", label: "de área verde" },
   { value: "10/10", label: "em avaliações públicas" },
 ];
