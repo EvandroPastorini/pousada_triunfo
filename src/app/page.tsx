@@ -7,7 +7,6 @@ import {
   Mail,
   MapPinned,
   MessageCircle,
-  Phone,
   Quote,
   Star,
 } from "lucide-react";
@@ -39,7 +38,7 @@ export default function Home() {
     image: "/images/hero-01.png",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Costa da Cadeia, S/N",
+      streetAddress: "Costa da Cadeia, 27855",
       addressLocality: "Triunfo",
       addressRegion: "RS",
       postalCode: "95840-000",
@@ -196,7 +195,7 @@ function About() {
           <p className="section-kicker">Sobre a pousada</p>
           <h2 className="section-title">Um refúgio de família para família.</h2>
           <p className="section-copy mt-7">
-            Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a {brand.name}
+            Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a {brand.name}{" "}
             nasceu do desejo de compartilhar um lugar único, acolhedor e exclusivo, onde a
             natureza encontra a sofisticação sem deixar a simplicidade.
           </p>
@@ -520,7 +519,6 @@ function ContactFooter() {
             value={contact.phone}
             external
           />
-          <ContactLink href={`tel:${contact.mobile}`} icon={Phone} label="Telefone" value={contact.mobile} />
           <ContactLink href={`mailto:${contact.email}`} icon={Mail} label="E-mail" value={contact.email} />
           <ContactLink
             href={contact.instagram}

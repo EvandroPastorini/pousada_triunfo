@@ -27,7 +27,7 @@ export const contact = {
   whatsapp: "5551980626716",
   email: "jardinsdagastehaus@gmail.com",
   instagram: "https://www.instagram.com/pousadajardinsgastehaus/",
-  address: "Costa da Cadeia, S/N, Triunfo, RS, 95840-000",
+  address: "Costa da Cadeia, 27855, Triunfo, RS, 95840-000",
   googleReviewsUrl:
     "https://www.google.com/maps/search/?api=1&query=Pousada%20Jardins%20da%20G%C3%A4stehaus%20Triunfo%20RS",
   mapUrl:
@@ -186,9 +186,9 @@ export const gallery = [
     category: "Suíte",
   },
   {
-    src: "/images/gallery-banheiro.png",
-    alt: "Banheiro privativo da suíte",
-    category: "Interiores",
+    src: "/images/drive-extra/gallery-romantico.jpg",
+    alt: "Mesa posta com flor, taças e sobremesa para uma experiência especial",
+    category: "Experiência",
   },
   {
     src: "/images/hero-02.png",
