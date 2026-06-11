@@ -35,9 +35,15 @@ import {
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Hotel",
+    "@type": "LodgingBusiness",
     name: brand.name,
-    image: "/images/hero-01.png",
+    description:
+      "Hospedagem em Triunfo, RS, com a casa de campo Gästehaus, quartos individuais e a Cabana Umbu independente em meio à natureza.",
+    image: [
+      "https://www.pousadatriunfo.com.br/images/drive-extra/fachada-noite2.png",
+      "https://www.pousadatriunfo.com.br/images/drive-extra/fachada-dia.jpg",
+      "https://www.pousadatriunfo.com.br/images/cabana-umbu/umbu1.jpeg",
+    ],
     address: {
       "@type": "PostalAddress",
       streetAddress: "Costa da Cadeia, 27855",
@@ -48,7 +54,20 @@ export default function Home() {
     },
     telephone: contact.phone,
     email: contact.email,
-    url: "https://www.pousadatriunfo.com.br/br/",
+    url: "https://www.pousadatriunfo.com.br/",
+    hasMap: contact.directionsUrl,
+    sameAs: [contact.instagram, contact.googleReviewsUrl],
+    amenityFeature: [
+      "Wi-Fi",
+      "Estacionamento",
+      "Café da manhã rural",
+      "Ar-condicionado",
+      "Jardins",
+    ].map((name) => ({
+      "@type": "LocationFeatureSpecification",
+      name,
+      value: true,
+    })),
   };
 
   return (
@@ -64,6 +83,7 @@ export default function Home() {
       <Experience />
       <Gallery />
       <Accommodations />
+      <BookingCta />
       <Reviews />
       <Location />
       <ContactFooter />
@@ -124,7 +144,7 @@ function Header() {
           target="_blank"
         >
           <MessageCircle aria-hidden className="size-4" />
-          WhatsApp
+          Consultar datas
         </a>
       </div>
     </header>
@@ -143,14 +163,14 @@ function Hero() {
         <div className="max-w-5xl">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/22 bg-moss-900/76 px-4 py-2 text-sm font-semibold text-white shadow-soft backdrop-blur">
             <Star aria-hidden className="size-4 fill-marigold" />
-            Hospedagem acolhedora em Triunfo, RS
+            Casa de campo e cabana em Triunfo, RS
           </p>
           <h1 className="font-display text-4xl leading-[0.98] text-balance drop-shadow-[0_4px_18px_rgba(0,0,0,0.38)] sm:text-6xl lg:text-7xl">
             {brand.name}
           </h1>
           <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-xl">
-            Conforto, natureza e a calma de uma pousada familiar para criar memórias em uma
-            cidade que respira história e tranquilidade.
+            Duas casas em 40 mil m² de área verde: a Gästehaus, inteira ou por quarto, e a
+            Cabana Umbu independente para viver Triunfo com calma e privacidade.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -159,14 +179,14 @@ function Hero() {
               rel="noreferrer"
               target="_blank"
             >
-              Falar no WhatsApp
+              Solicitar disponibilidade
               <ArrowRight aria-hidden className="size-4" />
             </a>
             <a
               className="inline-flex items-center justify-center rounded-full border border-white/45 bg-white/8 px-7 py-4 text-sm font-bold uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-marigold hover:bg-white/14 hover:text-marigold"
-              href="#galeria"
+              href="#acomodacoes"
             >
-              Ver fotos
+              Conhecer acomodações
             </a>
           </div>
         </div>
@@ -338,6 +358,34 @@ function Accommodations() {
   );
 }
 
+function BookingCta() {
+  return (
+    <section className="bg-[rgba(234,205,180,0.62)] py-16 sm:py-20">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="max-w-3xl">
+          <p className="section-kicker">Sua próxima pausa</p>
+          <h2 className="font-display text-4xl leading-tight text-moss-900 sm:text-5xl">
+            Planeje seu descanso em Triunfo.
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-moss-700 sm:text-lg">
+            Conte quantas pessoas irão viajar e quais datas você procura. A pousada ajuda a escolher
+            entre a Gästehaus completa, os quartos individuais e a Cabana Umbu.
+          </p>
+        </div>
+        <a
+          className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full bg-marigold px-7 py-4 text-sm font-semibold text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100 lg:self-auto"
+          href={whatsappUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          Solicitar disponibilidade
+          <ArrowRight aria-hidden className="size-4" />
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function Reviews() {
   return (
     <section id="avaliacoes" className="scroll-mt-24 bg-white py-24 sm:py-32">
@@ -371,9 +419,12 @@ function Reviews() {
               rel="noreferrer"
               target="_blank"
             >
-              Ver no Google
+              Ver avaliações no Google
               <ExternalLink aria-hidden className="size-4" />
             </a>
+            <p className="mt-4 max-w-md text-sm leading-6 text-moss-500">
+              Consulte no perfil público as avaliações e informações mais recentes da pousada.
+            </p>
           </div>
 
           <div className="grid gap-5">
@@ -418,11 +469,11 @@ function Location() {
               <span>{contact.address}</span>
             </p>
             <p className="leading-7">
-              A pousada fica em uma área calma, ideal para quem busca descanso, natureza e um ponto
-              de apoio confortável em uma cidade de história farroupilha, ruas açorianas e produtos
-              locais premiados.
+              Para quem procura hospedagem em Triunfo, a pousada oferece uma base tranquila em meio
+              à natureza, com acesso às experiências históricas, culturais e gastronômicas da região.
             </p>
           </div>
+          <h3 className="mt-8 font-display text-2xl text-moss-900">O que conhecer por perto</h3>
           <ul className="mt-7 space-y-3">
             {regionHighlights.map((item) => (
               <li className="flex gap-3 text-sm font-semibold text-moss-700" key={item}>
@@ -432,12 +483,12 @@ function Location() {
             ))}
           </ul>
           <a
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
+            className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
             href={contact.directionsUrl}
             rel="noreferrer"
             target="_blank"
           >
-            Abrir rotas
+            Como chegar
             <ArrowRight aria-hidden className="size-4" />
           </a>
         </div>

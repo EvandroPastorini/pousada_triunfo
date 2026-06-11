@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 type Accommodation = {
@@ -145,10 +145,11 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                         <span className="mt-6 block space-y-2">
                           {room.features.map((feature) => (
                             <span
-                              className="block text-sm font-semibold text-moss-700"
+                              className="flex items-start gap-2 text-sm font-semibold text-moss-700"
                               key={feature}
                             >
-                              {feature}
+                              <Check aria-hidden className="mt-0.5 size-4 shrink-0 text-clay" />
+                              <span>{feature}</span>
                             </span>
                           ))}
                         </span>
@@ -259,7 +260,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
           target="_blank"
           className="inline-flex rounded-full bg-marigold px-6 py-3 text-sm font-semibold text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100"
         >
-          Consultar disponibilidade
+          Solicitar disponibilidade
         </a>
       </div>
     </>

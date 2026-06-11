@@ -35,7 +35,7 @@ export const contact = {
 };
 
 export const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
-  `Olá! Gostaria de saber mais sobre hospedagem na ${brand.name}.`,
+  `Olá! Gostaria de consultar datas e disponibilidade na ${brand.name} para uma estadia em Triunfo.`,
 )}`;
 
 export const navItems = [
@@ -109,7 +109,7 @@ export const heroSlides = {
       position: "object-center",
     },
     {
-      src: "/images/gallery-hidro.jpg",
+      src: "/images/cabana-umbu/umbu8.jpg",
       alt: "Banheira de hidromassagem em acomodação da pousada",
       position: "object-center",
     },
@@ -334,13 +334,13 @@ export const reviews = [
   {
     quote:
       "Gostamos muito da pousada. Ambiente familiar, bonito e acolhedor. Lindo jardim com silêncio e ar puro.",
-    author: "Hóspede verificado",
+    author: "Relato de hóspede",
     source: "Avaliação pública",
   },
   {
     quote:
       "Recepção maravilhosa e anfitriões incansáveis para agradar. Acordamos com o canto dos pássaros.",
-    author: "Hóspede verificado",
+    author: "Relato de hóspede",
     source: "Avaliação pública",
   },
   {
@@ -354,7 +354,7 @@ export const reviews = [
 export const reviewStats = [
   { value: "2", label: "casas" },
   { value: "40 mil m²", label: "de área verde" },
-  { value: "10/10", label: "em avaliações públicas" },
+  { value: "Direto", label: "com os anfitriões" },
 ];
 
 export const regionHighlights = [
