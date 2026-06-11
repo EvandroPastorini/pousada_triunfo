@@ -493,9 +493,9 @@ function Location() {
           </a>
         </div>
 
-        <div className="overflow-hidden rounded-[8px] border border-moss-500/10 shadow-soft">
+        <div className="self-start overflow-hidden rounded-[8px] border border-moss-500/10 bg-white shadow-soft">
           <iframe
-            className="h-[420px] w-full border-0"
+            className="h-[420px] w-full border-0 sm:h-[520px]"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             src={contact.mapUrl}
