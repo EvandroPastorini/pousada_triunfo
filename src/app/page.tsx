@@ -15,6 +15,7 @@ import { LightboxGallery } from "@/components/LightboxGallery";
 import { AccommodationCards } from "@/components/AccommodationCards";
 import { brand } from "@/lib/brand";
 import {
+  accommodationGroups,
   accommodations,
   amenities,
   contact,
@@ -201,8 +202,8 @@ function About() {
             natureza encontra a sofisticação sem deixar a simplicidade.
           </p>
           <p className="mt-5 max-w-2xl leading-8 text-moss-700">
-            A proposta é simples e valiosa: celebrar uma ocasião especial, reunir pessoas queridas
-            ou simplesmente desacelerar em um ambiente confortável, elegante e cuidado nos detalhes.
+            O espaço reúne duas casas: a Gästehaus, que pode ser reservada inteira ou por um de seus
+            três quartos, e a Cabana Umbu, uma hospedagem independente dentro dos jardins.
           </p>
         </div>
 
@@ -304,12 +305,11 @@ function Accommodations() {
         <div className="mx-auto max-w-4xl text-center">
           <p className="section-kicker justify-center">Acomodações</p>
           <h2 className="section-title mx-auto">
-            Escolha entre a casa de campo completa ou quartos avulsos.
+            Duas casas, diferentes formas de viver os jardins.
           </h2>
           <p className="section-copy mx-auto mt-6">
-            A pousada conta com quartos e cabana distribuídos em opções de hospedagem para
-            diferentes momentos: exclusividade para grupos ou uma estadia mais econômica por
-            acomodação.
+            A Gästehaus é a pousada principal, com 3 quartos e opção de locação completa. A Cabana
+            Umbu é uma segunda casa independente, reservada separadamente.
           </p>
         </div>
 
@@ -328,7 +328,11 @@ function Accommodations() {
           ))}
         </div>
 
-        <AccommodationCards accommodations={accommodations} whatsappUrl={whatsappUrl} />
+        <AccommodationCards
+          accommodations={accommodations}
+          groups={accommodationGroups}
+          whatsappUrl={whatsappUrl}
+        />
       </div>
     </section>
   );

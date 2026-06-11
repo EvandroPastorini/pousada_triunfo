@@ -3,7 +3,6 @@ import {
   BedDouble,
   Bird,
   BookOpen,
-  CalendarCheck,
   Coffee,
   Flower2,
   Flame,
@@ -72,7 +71,7 @@ export const amenities = [
   { icon: ParkingCircle, label: "Estacionamento" },
   { icon: Bath, label: "Hidro" },
   { icon: Flower2, label: "Jardins" },
-  { icon: BedDouble, label: "4 acomodações" },
+  { icon: BedDouble, label: "2 casas" },
 ];
 
 export const heroSlides = {
@@ -154,6 +153,7 @@ export const gallery = [
     src: "/images/drive-extra/fachada-dia.jpg",
     alt: "Fachada da Pousada Jardins da Gästehaus durante o dia, cercada por jardins",
     category: "Casa de campo",
+    fit: "contain-desktop" as const,
   },
   {
     src: "/images/gallery-nature.png",
@@ -171,7 +171,7 @@ export const gallery = [
     category: "Áreas externas",
   },
   {
-    src: "/images/cabana-umbu/umbu1.jpeg",
+    src: "/images/cabana-umbu/umbu4.jpeg",
     alt: "Cabana Umbu cercada pela natureza, com deck de madeira e rede",
     category: "Cabana Umbu",
   },
@@ -186,9 +186,9 @@ export const gallery = [
     category: "Quartos",
   },
   {
-    src: "/images/gallery-hidro.jpg",
-    alt: "Banheira de hidromassagem da suíte",
-    category: "Suíte",
+    src: "/images/suite-amoras/amores1.jpeg",
+    alt: "Suíte Amoras da Gästehaus",
+    category: "Suíte Amoras",
   },
   {
     src: "/images/drive-extra/gallery-romantico.jpg",
@@ -196,12 +196,7 @@ export const gallery = [
     category: "Experiência",
   },
   {
-    src: "/images/hero-02.png",
-    alt: "Suíte com cama branca, paredes de tijolo e banheira",
-    category: "Acomodações",
-  },
-  {
-    src: "/images/gallery-suite.jpg",
+    src: "/images/quarto-lavandas/lavanda2.jpeg",
     alt: "Cama arrumada em acomodação aconchegante",
     category: "Conforto",
   },
@@ -224,7 +219,8 @@ export const gallery = [
 
 export const accommodations = [
   {
-    name: "Casa de Campo Completa",
+    group: "gastehaus",
+    name: "Gästehaus Completa",
     image: "/images/drive-extra/fachada-dia.jpg",
     images: [
       "/images/drive-extra/fachada-dia.jpg",
@@ -234,10 +230,11 @@ export const accommodations = [
     ],
     tag: "Espaço inteiro",
     description:
-      "Locação exclusiva da pousada para famílias, grupos e encontros especiais, com acesso aos jardins, deck, lounge e às 4 suítes.",
-    features: ["Privacidade total", "Ideal para grupos", "Áreas comuns exclusivas"],
+      "Locação exclusiva da casa de campo com seus 3 quartos — Rosas, Lavandas e Suíte Amoras — além das áreas de convivência.",
+    features: ["3 quartos", "Privacidade total", "Áreas comuns exclusivas"],
   },
   {
+    group: "gastehaus",
     name: "Quarto Rosas",
     image: "/images/gallery-casal.jpg",
     images: [
@@ -251,8 +248,9 @@ export const accommodations = [
     features: ["Cama de casal", "Vista para as roseiras", "Frente da pousada"],
   },
   {
+    group: "gastehaus",
     name: "Quarto Lavandas",
-    image: "/images/hero-02.png",
+    image: "/images/quarto-lavandas/lavanda2.jpeg",
     images: [
       "/images/quarto-lavandas/lavanda1.jpeg",
       "/images/quarto-lavandas/lavanda2.jpeg",
@@ -263,37 +261,72 @@ export const accommodations = [
     features: ["1 cama de casal", "2 camas de solteiro", "Vista para o lavandário"],
   },
   {
+    group: "gastehaus",
+    name: "Suíte Amoras",
+    image: "/images/suite-amoras/amores1.jpeg",
+    images: [
+      "/images/suite-amoras/amores1.jpeg",
+      "/images/suite-amoras/amores2.jpeg",
+      "/images/suite-amoras/amores3.jpeg",
+      "/images/suite-amoras/amores4.jpeg",
+    ],
+    tag: "Suíte da Gästehaus",
+    description:
+      "Suíte privativa que integra os três quartos da Gästehaus e pode ser reservada individualmente ou junto com a casa completa.",
+    features: ["Suíte privativa", "Reserva individual", "Inclusa na casa completa"],
+  },
+  {
+    group: "cabana-umbu",
     name: "Cabana Umbu",
     image: "/images/drive-extra/cabana-umbu.jpg",
     images: [
       "/images/cabana-umbu/umbu1.jpeg",
       "/images/cabana-umbu/umbu3.jpeg",
       "/images/cabana-umbu/umbu4.jpeg",
+      "/images/cabana-umbu/umbu7.png",
+      "/images/cabana-umbu/umbu8.jpg",
       "/images/cabana-umbu/umbu5.jpeg",
       "/images/cabana-umbu/umbu6.jpeg",
     ],
-    tag: "Cabana",
+    tag: "Cabana independente",
     description:
-      "Cabana privativa em meio ao verde, com deck de madeira e rede para descansar cercado pela natureza.",
-    features: ["Deck com rede", "Cercada pelo verde", "Experiência reservada"],
+      "Hospedagem independente da Gästehaus, localizada dentro do Jardins da Gästehaus e cercada pela natureza.",
+    features: ["Unidade independente", "Deck com rede", "Cercada pelo verde"],
+  },
+];
+
+export const accommodationGroups = [
+  {
+    id: "gastehaus",
+    eyebrow: "Casa de campo",
+    title: "Gästehaus",
+    description:
+      "A pousada principal pode ser reservada inteira, com seus 3 quartos, ou por quarto individual: Rosas, Lavandas e Suíte Amoras.",
+  },
+  {
+    id: "cabana-umbu",
+    eyebrow: "Hospedagem independente",
+    title: "Cabana Umbu",
+    description:
+      "Uma segunda casa, separada da pousada, que também faz parte da experiência Jardins da Gästehaus.",
   },
 ];
 
 export const stayModes = [
   {
     icon: Home,
-    title: "Casa de campo inteira",
-    text: "Para famílias, amigos, celebrações e encontros que pedem privacidade, natureza e uso exclusivo dos espaços.",
+    title: "Gästehaus completa",
+    text: "A casa de campo inteira, com os quartos Rosas, Lavandas e Suíte Amoras, para famílias e grupos.",
   },
   {
     icon: BedDouble,
-    title: "Quartos avulsos",
-    text: "Para casais ou viajantes que buscam uma opção mais econômica, mantendo o acolhimento da pousada.",
+    title: "Quartos da Gästehaus",
+    text: "Rosas, Lavandas e Suíte Amoras também podem ser reservados individualmente.",
   },
   {
-    icon: CalendarCheck,
-    title: "Eventos e experiências",
-    text: "Ensaios fotográficos, workshops, pré-wedding, casamentos intimistas e experiências de bem-estar sob agendamento.",
+    icon: TreePine,
+    title: "Cabana Umbu",
+    text: "Uma casa independente da pousada, inserida nos jardins e reservada separadamente.",
   },
 ];
 
@@ -319,7 +352,7 @@ export const reviews = [
 ];
 
 export const reviewStats = [
-  { value: "4", label: "acomodações" },
+  { value: "2", label: "casas" },
   { value: "40 mil m²", label: "de área verde" },
   { value: "10/10", label: "em avaliações públicas" },
 ];

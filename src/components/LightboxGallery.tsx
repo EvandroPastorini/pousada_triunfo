@@ -8,6 +8,7 @@ type GalleryItem = {
   src: string;
   alt: string;
   category: string;
+  fit?: "cover" | "contain-desktop";
 };
 
 export function LightboxGallery({ items }: { items: GalleryItem[] }) {
@@ -40,15 +41,35 @@ export function LightboxGallery({ items }: { items: GalleryItem[] }) {
             onClick={() => setActiveImage(item)}
             type="button"
           >
+            {item.fit === "contain-desktop" ? (
+              <Image
+                src={item.src}
+                alt=""
+                aria-hidden
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="hidden scale-110 object-cover blur-xl brightness-75 md:block"
+              />
+            ) : null}
             <Image
               src={item.src}
               alt={item.alt}
               fill
               sizes={index === 0 ? "(min-width: 768px) 50vw, 100vw" : "(min-width: 768px) 25vw, 50vw"}
-              className="object-cover transition duration-500 group-hover:scale-105"
+              className={`z-10 transition duration-500 group-hover:scale-105 ${
+                item.fit === "contain-desktop"
+                  ? "object-cover md:object-contain md:group-hover:scale-100"
+                  : "object-cover"
+              }`}
             />
-            <span className="absolute inset-0 bg-gradient-to-t from-moss-900/76 via-moss-900/10 to-transparent" />
-            <span className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 text-sm font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.42)]">
+            <span className="absolute inset-0 z-20 bg-gradient-to-t from-moss-900/76 via-moss-900/10 to-transparent" />
+            <span
+              className={`absolute bottom-4 left-4 right-4 z-30 flex items-center justify-between gap-2 text-sm font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.42)] ${
+                item.fit === "contain-desktop"
+                  ? "rounded-[6px] bg-moss-900/80 px-3 py-2 backdrop-blur-sm md:right-auto md:min-w-48"
+                  : ""
+              }`}
+            >
               {item.category}
               <ZoomIn aria-hidden className="size-4 shrink-0 opacity-80" />
             </span>

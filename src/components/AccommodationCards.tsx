@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 type Accommodation = {
+  group: string;
   name: string;
   image: string;
   images?: string[];
@@ -13,12 +14,20 @@ type Accommodation = {
   features: string[];
 };
 
+type AccommodationGroup = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+};
+
 type Props = {
   accommodations: Accommodation[];
+  groups: AccommodationGroup[];
   whatsappUrl: string;
 };
 
-export function AccommodationCards({ accommodations, whatsappUrl }: Props) {
+export function AccommodationCards({ accommodations, groups, whatsappUrl }: Props) {
   const [selectedAccommodation, setSelectedAccommodation] = useState<Accommodation | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -71,58 +80,90 @@ export function AccommodationCards({ accommodations, whatsappUrl }: Props) {
 
   return (
     <>
-      <div className="mt-14 grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
-        {accommodations.map((room) => (
-          <article
-            className="group overflow-hidden rounded-[8px] border border-moss-500/10 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(95,70,48,0.16)]"
-            key={room.name}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedAccommodation(room);
-                setCurrentImageIndex(0);
-              }}
-              className="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
-              aria-label={`Ver fotos de ${room.name}`}
-            >
-              <span className="relative block aspect-[4/3] overflow-hidden bg-moss-50">
-                <Image
-                  src={room.image}
-                  alt={room.name}
-                  fill
-                  sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <span className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-moss-900/40 to-transparent" />
-                <span className="absolute bottom-4 right-4 inline-flex size-10 items-center justify-center rounded-full bg-white/95 text-clay shadow-soft backdrop-blur">
-                  <Images aria-hidden className="size-5" />
-                </span>
-              </span>
+      <div className="mt-16 space-y-16">
+        {groups.map((group) => {
+          const groupAccommodations = accommodations.filter((room) => room.group === group.id);
 
-              <span className="block p-7">
-                <span className="mb-3 inline-flex rounded-full bg-marigold/24 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-clay">
-                  {room.tag}
-                </span>
-                <span className="block font-display text-3xl leading-tight text-moss-900">
-                  {room.name}
-                </span>
-                <span className="mt-4 block leading-7 text-moss-700">{room.description}</span>
-                <span className="mt-6 block space-y-2">
-                  {room.features.map((feature) => (
-                    <span className="block text-sm font-semibold text-moss-700" key={feature}>
-                      {feature}
-                    </span>
-                  ))}
-                </span>
-                <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-clay">
-                  <Images aria-hidden className="size-4" />
-                  Ver fotos
-                </span>
-              </span>
-            </button>
-          </article>
-        ))}
+          return (
+            <section key={group.id} aria-labelledby={`accommodation-${group.id}`}>
+              <div className="mb-7 max-w-3xl">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-clay">
+                  {group.eyebrow}
+                </p>
+                <h3
+                  id={`accommodation-${group.id}`}
+                  className="mt-2 font-display text-4xl leading-tight text-moss-900"
+                >
+                  {group.title}
+                </h3>
+                <p className="mt-3 leading-7 text-moss-700">{group.description}</p>
+              </div>
+
+              <div
+                className={`grid gap-7 sm:grid-cols-2 ${
+                  groupAccommodations.length > 2 ? "xl:grid-cols-4" : "lg:grid-cols-2"
+                }`}
+              >
+                {groupAccommodations.map((room) => (
+                  <article
+                    className="group overflow-hidden rounded-[8px] border border-moss-500/10 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(95,70,48,0.16)]"
+                    key={room.name}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedAccommodation(room);
+                        setCurrentImageIndex(0);
+                      }}
+                      className="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
+                      aria-label={`Ver fotos de ${room.name}`}
+                    >
+                      <span className="relative block aspect-[4/3] overflow-hidden bg-moss-50">
+                        <Image
+                          src={room.image}
+                          alt={room.name}
+                          fill
+                          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover transition duration-500 group-hover:scale-105"
+                        />
+                        <span className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-moss-900/40 to-transparent" />
+                        <span className="absolute bottom-4 right-4 inline-flex size-10 items-center justify-center rounded-full bg-white/95 text-clay shadow-soft backdrop-blur">
+                          <Images aria-hidden className="size-5" />
+                        </span>
+                      </span>
+
+                      <span className="block p-7">
+                        <span className="mb-3 inline-flex rounded-full bg-marigold/24 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-clay">
+                          {room.tag}
+                        </span>
+                        <span className="block font-display text-3xl leading-tight text-moss-900">
+                          {room.name}
+                        </span>
+                        <span className="mt-4 block leading-7 text-moss-700">
+                          {room.description}
+                        </span>
+                        <span className="mt-6 block space-y-2">
+                          {room.features.map((feature) => (
+                            <span
+                              className="block text-sm font-semibold text-moss-700"
+                              key={feature}
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </span>
+                        <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-clay">
+                          <Images aria-hidden className="size-4" />
+                          Ver fotos
+                        </span>
+                      </span>
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
 
       {selectedAccommodation && images.length > 0 && (
