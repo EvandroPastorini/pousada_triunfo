@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { HeroCarousel } from "@/components/HeroCarousel";
 import { LightboxGallery } from "@/components/LightboxGallery";
+import { AccommodationCards } from "@/components/AccommodationCards";
 import { brand } from "@/lib/brand";
 import {
   accommodations,
@@ -327,49 +328,7 @@ function Accommodations() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
-          {accommodations.map((room) => (
-            <article
-              className="group overflow-hidden rounded-[8px] border border-moss-500/10 bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(95,70,48,0.16)]"
-              key={room.name}
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={room.image}
-                  alt={room.name}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <span className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-moss-900/32 to-transparent" />
-              </div>
-              <div className="p-7">
-                <p className="mb-3 inline-flex rounded-full bg-marigold/24 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.14em] text-clay">
-                  {room.tag}
-                </p>
-                <h3 className="font-display text-3xl leading-tight text-moss-900">{room.name}</h3>
-                <p className="mt-4 leading-7 text-moss-700">{room.description}</p>
-                <ul className="mt-6 space-y-3">
-                  {room.features.map((feature) => (
-                    <li className="flex gap-3 text-sm font-semibold text-moss-700" key={feature}>
-                      <CheckCircle aria-hidden className="mt-0.5 size-4 shrink-0 text-clay" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.12em] text-clay transition hover:translate-x-1 hover:text-moss-700"
-                  href={whatsappUrl}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Consultar disponibilidade
-                  <ArrowRight aria-hidden className="size-4" />
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
+        <AccommodationCards accommodations={accommodations} whatsappUrl={whatsappUrl} />
       </div>
     </section>
   );

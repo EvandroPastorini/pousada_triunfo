@@ -171,7 +171,7 @@ export const gallery = [
     category: "Áreas externas",
   },
   {
-    src: "/images/drive-extra/cabana-umbu.jpg",
+    src: "/images/cabana-umbu/umbu1.jpeg",
     alt: "Cabana Umbu cercada pela natureza, com deck de madeira e rede",
     category: "Cabana Umbu",
   },
@@ -226,6 +226,12 @@ export const accommodations = [
   {
     name: "Casa de Campo Completa",
     image: "/images/drive-extra/fachada-dia.jpg",
+    images: [
+      "/images/drive-extra/fachada-dia.jpg",
+      "/images/drive-extra/salao-interno.jpg",
+      "/images/drive-extra/varanda-descanso.jpg",
+      "/images/drive-extra/fachada-noite.jpg",
+    ],
     tag: "Espaço inteiro",
     description:
       "Locação exclusiva da pousada para famílias, grupos e encontros especiais, com acesso aos jardins, deck, lounge e às 4 suítes.",
@@ -234,6 +240,11 @@ export const accommodations = [
   {
     name: "Quarto Rosas",
     image: "/images/gallery-casal.jpg",
+    images: [
+      "/images/quarto-rosa/rosa1.jpeg",
+      "/images/quarto-rosa/rosa2.jpeg",
+      "/images/quarto-rosa/rosa3.jpeg",
+    ],
     tag: "Casal",
     description:
       "Quarto de casal com janela voltada para as roseiras e para a frente da pousada, ideal para uma estadia tranquila a dois.",
@@ -242,6 +253,10 @@ export const accommodations = [
   {
     name: "Quarto Lavandas",
     image: "/images/hero-02.png",
+    images: [
+      "/images/quarto-lavandas/lavanda1.jpeg",
+      "/images/quarto-lavandas/lavanda2.jpeg",
+    ],
     tag: "Até 4 pessoas",
     description:
       "Acomodação para até 4 pessoas, com uma cama de casal e duas camas de solteiro. A janela tem vista para o lavandário.",
@@ -250,6 +265,13 @@ export const accommodations = [
   {
     name: "Cabana Umbu",
     image: "/images/drive-extra/cabana-umbu.jpg",
+    images: [
+      "/images/cabana-umbu/umbu1.jpeg",
+      "/images/cabana-umbu/umbu3.jpeg",
+      "/images/cabana-umbu/umbu4.jpeg",
+      "/images/cabana-umbu/umbu5.jpeg",
+      "/images/cabana-umbu/umbu6.jpeg",
+    ],
     tag: "Cabana",
     description:
       "Cabana privativa em meio ao verde, com deck de madeira e rede para descansar cercado pela natureza.",
