@@ -11,7 +11,12 @@ type GalleryItem = {
   fit?: "cover" | "contain-desktop";
 };
 
-export function LightboxGallery({ items }: { items: GalleryItem[] }) {
+type LightboxLabels = {
+  close: string;
+  zoomIconLabel: string;
+};
+
+export function LightboxGallery({ items, labels }: { items: GalleryItem[]; labels: LightboxLabels }) {
   const [activeImage, setActiveImage] = useState<GalleryItem | null>(null);
 
   useEffect(() => {
@@ -71,7 +76,7 @@ export function LightboxGallery({ items }: { items: GalleryItem[] }) {
               }`}
             >
               {item.category}
-              <ZoomIn aria-hidden className="size-4 shrink-0 opacity-80" />
+              <ZoomIn aria-label={labels.zoomIconLabel} className="size-4 shrink-0 opacity-80" />
             </span>
           </button>
         ))}
@@ -84,7 +89,7 @@ export function LightboxGallery({ items }: { items: GalleryItem[] }) {
           role="dialog"
         >
           <button
-            aria-label="Fechar imagem ampliada"
+            aria-label={labels.close}
             className="absolute right-4 top-4 inline-flex size-11 items-center justify-center rounded-full bg-white text-moss-900 shadow-soft transition hover:bg-moss-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-marigold"
             onClick={() => setActiveImage(null)}
             type="button"

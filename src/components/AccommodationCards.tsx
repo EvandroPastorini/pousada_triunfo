@@ -21,13 +21,26 @@ type AccommodationGroup = {
   description: string;
 };
 
+type AccommodationLabels = {
+  viewPhotos: string;
+  viewPhotosAriaPrefix: string;
+  modalAriaPrefix: string;
+  close: string;
+  previous: string;
+  next: string;
+  selectPhotoPrefix: string;
+  photoOf: string;
+  consultAvailability: string;
+};
+
 type Props = {
   accommodations: Accommodation[];
   groups: AccommodationGroup[];
+  labels: AccommodationLabels;
   whatsappUrl: string;
 };
 
-export function AccommodationCards({ accommodations, groups, whatsappUrl }: Props) {
+export function AccommodationCards({ accommodations, groups, labels, whatsappUrl }: Props) {
   const [selectedAccommodation, setSelectedAccommodation] = useState<Accommodation | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -116,7 +129,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                         setCurrentImageIndex(0);
                       }}
                       className="block w-full text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-clay"
-                      aria-label={`Ver fotos de ${room.name}`}
+                      aria-label={`${labels.viewPhotosAriaPrefix} ${room.name}`}
                     >
                       <span className="relative block aspect-[4/3] overflow-hidden bg-moss-50">
                         <Image
@@ -155,7 +168,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                         </span>
                         <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-clay">
                           <Images aria-hidden className="size-4" />
-                          Ver fotos
+                          {labels.viewPhotos}
                         </span>
                       </span>
                     </button>
@@ -172,7 +185,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
           className="fixed inset-0 z-50 flex items-center justify-center bg-moss-900/90 p-3 backdrop-blur-sm sm:p-6"
           role="dialog"
           aria-modal="true"
-          aria-label={`Galeria de ${selectedAccommodation.name}`}
+          aria-label={`${labels.modalAriaPrefix} ${selectedAccommodation.name}`}
           onClick={closeCarousel}
         >
           <div
@@ -181,7 +194,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
           >
             <Image
               src={images[currentImageIndex]}
-              alt={`${selectedAccommodation.name}, foto ${currentImageIndex + 1} de ${images.length}`}
+              alt={`${selectedAccommodation.name}, ${labels.viewPhotos.toLowerCase()} ${currentImageIndex + 1} ${labels.photoOf} ${images.length}`}
               fill
               sizes="100vw"
               priority
@@ -192,7 +205,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
               type="button"
               onClick={closeCarousel}
               className="absolute right-3 top-3 z-20 inline-flex size-11 items-center justify-center rounded-full bg-white/95 text-moss-900 shadow-soft transition hover:bg-white"
-              aria-label="Fechar galeria"
+              aria-label={labels.close}
             >
               <X aria-hidden className="size-5" />
             </button>
@@ -203,7 +216,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                   type="button"
                   onClick={previousImage}
                   className="absolute left-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-moss-900 shadow-soft transition hover:bg-white sm:left-5"
-                  aria-label="Foto anterior"
+                  aria-label={labels.previous}
                 >
                   <ChevronLeft aria-hidden className="size-6" />
                 </button>
@@ -211,7 +224,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                   type="button"
                   onClick={nextImage}
                   className="absolute right-3 top-1/2 z-20 inline-flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-moss-900 shadow-soft transition hover:bg-white sm:right-5"
-                  aria-label="Próxima foto"
+                  aria-label={labels.next}
                 >
                   <ChevronRight aria-hidden className="size-6" />
                 </button>
@@ -243,7 +256,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
                       className={`h-2.5 w-2.5 rounded-full transition ${
                         index === currentImageIndex ? "bg-white" : "bg-white/40 hover:bg-white/70"
                       }`}
-                      aria-label={`Ir para foto ${index + 1}`}
+                      aria-label={`${labels.selectPhotoPrefix} ${index + 1}`}
                     />
                   ))}
                 </div>
@@ -260,7 +273,7 @@ export function AccommodationCards({ accommodations, groups, whatsappUrl }: Prop
           target="_blank"
           className="inline-flex rounded-full bg-marigold px-6 py-3 text-sm font-semibold text-moss-900 shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-100"
         >
-          Solicitar disponibilidade
+          {labels.consultAvailability}
         </a>
       </div>
     </>
