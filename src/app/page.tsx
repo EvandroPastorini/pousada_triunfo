@@ -38,7 +38,7 @@ export default function Home() {
     "@type": "LodgingBusiness",
     name: brand.name,
     description:
-      "Hospedagem em Triunfo, RS, com a casa de campo Gästehaus, quartos individuais e a Cabana Umbu independente em meio à natureza.",
+      "Pousada rural em Triunfo, RS, com a casa de campo Gästehaus, quartos individuais, Cabana Umbu independente e experiências acolhedoras no meio rural.",
     image: [
       "https://www.pousadatriunfo.com.br/images/drive-extra/fachada-noite2.png",
       "https://www.pousadatriunfo.com.br/images/drive-extra/fachada-dia.jpg",
@@ -163,14 +163,14 @@ function Hero() {
         <div className="max-w-5xl">
           <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/22 bg-moss-900/76 px-4 py-2 text-sm font-semibold text-white shadow-soft backdrop-blur">
             <Star aria-hidden className="size-4 fill-marigold" />
-            Casa de campo e cabana em Triunfo, RS
+            Pousada rural em Triunfo, RS
           </p>
           <h1 className="font-display text-4xl leading-[0.98] text-balance drop-shadow-[0_4px_18px_rgba(0,0,0,0.38)] sm:text-6xl lg:text-7xl">
             {brand.name}
           </h1>
           <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-xl">
-            Duas casas em 40 mil m² de área verde: a Gästehaus, inteira ou por quarto, e a
-            Cabana Umbu independente para viver Triunfo com calma e privacidade.
+            Duas casas em 40 mil m² de área verde: a Gästehaus, inteira ou por quarto, e a Cabana
+            Umbu independente para viver o meio rural de Triunfo com calma e privacidade.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -215,15 +215,16 @@ function About() {
       <div className="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
         <div>
           <p className="section-kicker">Sobre a pousada</p>
-          <h2 className="section-title">Um refúgio de família para família.</h2>
+          <h2 className="section-title">Um refúgio rural de família para família.</h2>
           <p className="section-copy mt-7">
             Em Triunfo, entre jardins, lago e o ritmo calmo do interior, a {brand.name}{" "}
-            nasceu do desejo de compartilhar um lugar único, acolhedor e exclusivo, onde a
-            natureza encontra a sofisticação sem deixar a simplicidade.
+            nasceu do desejo de compartilhar um lugar rural, acolhedor e exclusivo, onde a natureza
+            encontra a sofisticação sem deixar a simplicidade.
           </p>
           <p className="mt-5 max-w-2xl leading-8 text-moss-700">
             O espaço reúne duas casas: a Gästehaus, que pode ser reservada inteira ou por um de seus
-            três quartos, e a Cabana Umbu, uma hospedagem independente dentro dos jardins.
+            três quartos, e a Cabana Umbu, uma hospedagem independente dentro dos jardins e da vida
+            simples do campo.
           </p>
         </div>
 
@@ -253,16 +254,18 @@ function Experience() {
         <div className="grid gap-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
           <div>
             <p className="section-kicker">Experiência</p>
-            <h2 className="section-title">Contemplação, privacidade e charme em meio aos jardins.</h2>
+            <h2 className="section-title">
+              Contemplação, privacidade e vivências no meio rural.
+            </h2>
           </div>
           <p className="section-copy lg:pb-2">
             A pousada foi pensada para receber cada hóspede de maneira única, valorizando as
-            características locais, o respeito ao meio ambiente e uma hospitalidade atenta aos
-            pequenos detalhes.
+            características do interior, o respeito ao meio ambiente e uma hospitalidade atenta aos
+            pequenos detalhes, com experiências rurais acolhedoras ao longo da estadia.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {experienceHighlights.map((item) => (
             <article
               className="rounded-[8px] border border-moss-500/10 bg-linen/70 p-7 shadow-soft"
@@ -307,8 +310,8 @@ function Gallery() {
             <h2 className="section-title">Espaços para respirar, descansar e aproveitar.</h2>
           </div>
           <p className="max-w-md text-base leading-8 text-moss-700">
-            Clique nas fotos para ampliar e conhecer quartos, áreas externas, interiores e
-            paisagens da pousada.
+            Clique nas fotos para ampliar e conhecer quartos, áreas externas, interiores, paisagens
+            e experiências rurais da pousada.
           </p>
         </div>
 
@@ -474,14 +477,39 @@ function Location() {
             </p>
           </div>
           <h3 className="mt-8 font-display text-2xl text-moss-900">O que conhecer por perto</h3>
-          <ul className="mt-7 space-y-3">
+          <ul className="mt-7 hidden space-y-3 sm:block">
             {regionHighlights.map((item) => (
-              <li className="flex gap-3 text-sm font-semibold text-moss-700" key={item}>
+              <li className="flex gap-3 text-sm font-semibold text-moss-700" key={item.title}>
                 <CheckCircle aria-hidden className="mt-0.5 size-4 shrink-0 text-clay" />
-                <span>{item}</span>
+                <span>{item.title}</span>
               </li>
             ))}
           </ul>
+          <div className="mt-6 grid gap-4 sm:hidden">
+            {regionHighlights.map((item) => (
+              <article
+                className="overflow-hidden rounded-[8px] border border-moss-500/10 bg-linen/55 shadow-[0_14px_34px_rgba(90,58,34,0.08)]"
+                key={item.title}
+              >
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-moss-900/38 to-transparent" />
+                </div>
+                <div className="p-4">
+                  <h4 className="font-display text-2xl leading-tight text-moss-900">
+                    {item.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-moss-700">{item.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
           <a
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-clay px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-moss-700"
             href={contact.directionsUrl}

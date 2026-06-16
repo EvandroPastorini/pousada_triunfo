@@ -5,14 +5,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.pousadatriunfo.com.br"),
   title: {
-    default: `${brand.name} | Pousada e cabana em Triunfo, RS`,
+    default: `${brand.name} | Pousada rural e cabana em Triunfo, RS`,
     template: `%s | ${brand.name}`,
   },
   description:
-    `Hospedagem em Triunfo, RS, com casa de campo, quartos individuais e a Cabana Umbu em 40 mil m² de natureza. Consulte disponibilidade pelo WhatsApp.`,
+    `Pousada rural em Triunfo, RS, com casa de campo, quartos individuais, Cabana Umbu e experiências no meio rural em 40 mil m² de natureza.`,
   keywords: [
     "pousada em Triunfo RS",
+    "pousada rural em Triunfo RS",
     "hospedagem em Triunfo",
+    "hospedagem rural em Triunfo",
     "casa de campo em Triunfo",
     "cabana em Triunfo RS",
     "Jardins da Gästehaus",
@@ -30,9 +32,9 @@ export const metadata: Metadata = {
     apple: brand.logos.apple,
   },
   openGraph: {
-    title: `${brand.name} | Hospedagem em Triunfo, RS`,
+    title: `${brand.name} | Pousada rural em Triunfo, RS`,
     description:
-      "Casa de campo, quartos individuais e uma cabana independente em meio a 40 mil m² de natureza.",
+      "Casa de campo, quartos individuais, Cabana Umbu e vivências acolhedoras no meio rural.",
     url: "/",
     siteName: brand.name,
     images: [
@@ -46,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${brand.name} | Hospedagem em Triunfo, RS`,
+    title: `${brand.name} | Pousada rural em Triunfo, RS`,
     description:
-      "Casa de campo, quartos individuais e uma cabana independente em meio à natureza.",
+      "Casa de campo, quartos individuais e Cabana Umbu no meio rural de Triunfo.",
     images: ["/images/drive-extra/fachada-noite2.png"],
   },
 };

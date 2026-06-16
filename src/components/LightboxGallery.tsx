@@ -37,7 +37,7 @@ export function LightboxGallery({ items }: { items: GalleryItem[] }) {
             className={`group relative overflow-hidden rounded-[8px] bg-moss-900 text-left shadow-soft outline-none ring-marigold transition duration-300 hover:-translate-y-1 focus-visible:ring-2 ${
               index === 0 ? "col-span-2 row-span-2 aspect-[4/5] md:aspect-[8/7]" : "aspect-[4/5]"
             }`}
-            key={item.src}
+            key={`${item.src}-${item.category}`}
             onClick={() => setActiveImage(item)}
             type="button"
           >

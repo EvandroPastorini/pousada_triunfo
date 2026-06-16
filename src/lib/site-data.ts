@@ -12,11 +12,14 @@ import {
   MapPin,
   ParkingCircle,
   PawPrint,
+  Route,
   Sparkles,
   TreePine,
+  Tractor,
   Tv,
   Wifi,
   Wind,
+  Waves,
 } from "lucide-react";
 import { brand } from "@/lib/brand";
 
@@ -50,8 +53,8 @@ export const navItems = [
 export const highlights = [
   {
     icon: TreePine,
-    title: "Natureza ao redor",
-    text: "Jardins, lago e paisagens tranquilas para desacelerar sem abrir mão do conforto.",
+    title: "Meio rural",
+    text: "Uma hospedagem rural em Triunfo, cercada por jardins, lago e paisagens de interior.",
   },
   {
     icon: Sparkles,
@@ -61,7 +64,7 @@ export const highlights = [
   {
     icon: MapPin,
     title: "Refúgio em Triunfo",
-    text: "Localização calma em Triunfo, com acesso fácil para quem busca descanso e ar livre.",
+    text: "Localização calma para quem busca descanso, ar livre e vivências simples no campo.",
   },
 ];
 
@@ -130,6 +133,12 @@ export const experienceHighlights = [
     text: "A área preservada atrai espécies que encantam os hóspedes visualmente e pelo canto ao amanhecer.",
   },
   {
+    icon: Tractor,
+    eyebrow: "Vivências no campo",
+    title: "Experiências rurais acolhedoras",
+    text: "Carroça tratorada, trilhas, toboágua e banho de açude podem aproximar a estadia do ritmo leve do interior.",
+  },
+  {
     icon: Heart,
     eyebrow: "Cuidado sob agendamento",
     title: "Petit Spa e bem-estar",
@@ -146,6 +155,8 @@ export const services = [
   { icon: Coffee, label: "Café da manhã rural" },
   { icon: BookOpen, label: "Acervo de livros" },
   { icon: PawPrint, label: "Pet friendly sob consulta" },
+  { icon: Route, label: "Trilhas e vivências rurais" },
+  { icon: Waves, label: "Banho de açude" },
 ];
 
 export const gallery = [
@@ -169,6 +180,11 @@ export const gallery = [
     src: "/images/gallery-bangalo.png",
     alt: "Bangalô à beira do lago",
     category: "Áreas externas",
+  },
+  {
+    src: "/images/drive-extra/varanda-descanso.jpg",
+    alt: "Varanda com redes em meio à área rural da pousada",
+    category: "Experiências rurais",
   },
   {
     src: "/images/cabana-umbu/umbu4.jpeg",
@@ -196,14 +212,14 @@ export const gallery = [
     category: "Experiência",
   },
   {
+    src: "/images/hero-01.png",
+    alt: "Área verde com lago para banho de açude e contemplação",
+    category: "Açude",
+  },
+  {
     src: "/images/quarto-lavandas/lavanda2.jpeg",
     alt: "Cama arrumada em acomodação aconchegante",
     category: "Conforto",
-  },
-  {
-    src: "/images/drive-extra/varanda-descanso.jpg",
-    alt: "Hóspedes descansando em redes na varanda com vista para os jardins",
-    category: "Descanso",
   },
   {
     src: "/images/drive-extra/cafe-na-cama.jpg",
@@ -214,6 +230,11 @@ export const gallery = [
     src: "/images/drive-extra/petit-spa.jpg",
     alt: "Experiência de massagem ao ar livre nos jardins da pousada",
     category: "Petit Spa",
+  },
+  {
+    src: "/images/cabana-umbu/umbu2.jpeg",
+    alt: "Natureza preservada próxima às acomodações rurais",
+    category: "Trilhas e natureza",
   },
 ];
 
@@ -358,8 +379,28 @@ export const reviewStats = [
 ];
 
 export const regionHighlights = [
-  "Centro histórico de Triunfo e Museu Farroupilha",
-  "Orla dos rios Taquari e Jacuí",
-  "Queijaria artesanal Fazenda Três Montes",
-  "Azeite Milonga, produzido em Triunfo",
+  {
+    title: "Centro histórico de Triunfo e Museu Farroupilha",
+    text: "Ruas, memória e arquitetura que ajudam a contar a história da cidade.",
+    image: "/images/drive-extra/fachada-dia.jpg",
+    alt: "Fachada acolhedora da pousada em meio aos jardins",
+  },
+  {
+    title: "Encontro dos rios Taquari e Jacuí",
+    text: "Um cenário natural marcante de Triunfo para contemplar a paisagem e o ritmo das águas.",
+    image: "/images/gallery-nature.png",
+    alt: "Paisagem natural com água e pôr do sol na região da pousada",
+  },
+  {
+    title: "Queijaria artesanal Fazenda Três Montes",
+    text: "Uma experiência gastronômica local para quem gosta de sabores do interior.",
+    image: "/images/drive-extra/cafe-na-cama.jpg",
+    alt: "Café servido com cuidado em acomodação da pousada",
+  },
+  {
+    title: "Azeite Milonga, produzido em Triunfo",
+    text: "Produção local que valoriza o turismo rural e os sabores da região.",
+    image: "/images/drive-extra/gallery-romantico.jpg",
+    alt: "Mesa posta com taças, flor e sobremesa em uma experiência especial",
+  },
 ];
