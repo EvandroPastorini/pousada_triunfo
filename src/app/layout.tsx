@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { brand } from "@/lib/brand";
 import "./globals.css";
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         {children}
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
